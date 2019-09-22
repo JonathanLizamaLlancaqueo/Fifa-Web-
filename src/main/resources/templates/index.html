@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+    <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
+    <header>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </header>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}"> </title>
+</head>
+<body>
+<div class="container">
+    <h2>Lista jugadores FIFA 2019</h2>
+
+    <table class="table table-bordered table-hover">
+        <tr class="success">
+            <th>Nombre</th>
+            <th>Fotografia</th>
+            <th>Nacionalidad</th>
+            <th>Rating</th>
+            <th>Edad</th>
+            <th>Club</th>
+            <th>Potencial</th>
+        </tr>
+
+
+        <tr th:each="player: ${players}">
+            <td th:text="${player.getName()}" />
+            <td><img th:src="${player.getPhoto()}"></td>
+            <td th:text="${player.getNationality()}"/>
+            <td th:text="${player.getRating()}"/>
+            <td th:text="${player.getAge()}"/>
+            <td th:text="${player.getClub()}"/>
+            <td th:text="${player.getPotential()}"/>
+        </tr>
+
+    </table>
+</div>
+
+</body>
+</html>
